@@ -1,0 +1,10 @@
+ <%= link_to event_path(event.id) do %>
+  	<h2> 
+  	<%= event.name %> 
+
+  	<%= event.start_time %> 
+  	<%= event.start_date %> 
+  	<%= event.address %>
+  	<%= truncate(event.description, length: 100) %>
+  	</h2>
+  <%end%>
