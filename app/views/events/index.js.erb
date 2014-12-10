@@ -1,0 +1,9 @@
+<% if params[:search] %>
+
+  $('#events').html("<%= j(render @events) %>");
+<% else %>
+  $('#events').append("<%= j(render @events) %>");
+<% end %>
+
+$('.pagination').replaceWith('<%= j paginate(@events) %>');
+
