@@ -1,9 +1,16 @@
 <h1>All Events</h1>
 
+<%= form_tag events_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div id="events">
   <%= render @events %>
 </div>
 
 
 <%=link_to "Add A New Event", new_event_url %>
+
+<div id="events-pagination"><%= paginate @events %></div>
 
