@@ -1,12 +1,16 @@
- <%= link_to event_path(event.id) do %>
+
   	
  	<img src = <%=event.image%> >
 
-  	<h2><%= event.name %> <h2>
+  	<h2><%= link_to event.name, event %> <h2>
   	<h3>
   	<%= event.start_time %> 
   	<%= event.start_date %> 
   	<%= event.address %>
   	<%= truncate(event.description, length: 100) %>
   	</h3>
-  <%end%>
+  	<p>
+  	  Tags: <%= raw event.tags.map(&:name) %>
+    </p>
+
+ 
