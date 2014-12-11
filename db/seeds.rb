@@ -52,3 +52,31 @@ results.each do |result|
 end
 
 binding.pry
+
+Tag.create!([{
+  name: 'Concerts'
+}])
+
+Tag.create!([{
+  name: 'Festivals'
+}])
+
+Tag.create!([{
+  name: 'Comedy'
+}])
+
+Tag.create!([{
+  name: 'Family'
+}])
+
+Tag.create!([{
+  name: 'Nightlife'
+}])
+
+Tag.create!([{
+  name: 'Sports'
+}])
+
+Tag.create!([{
+  name: 'Performing Arts'
+}])
