@@ -9,11 +9,10 @@
 <body>
 
 	<div id="nav">
-    <%= link_to Tag.first.name, tag_path(Tag.first.name) %>
-    <%= link_to Tag.second.name, tag_path(Tag.second.name) %>
-    <%= link_to Tag.third.name, tag_path(Tag.third.name) %>
-    <%= link_to Tag.fourth.name, tag_path(Tag.fourth.name) %>
-    <%= link_to Tag.fifth.name, tag_path(Tag.fifth.name) %>
+    <% Tag.all.each do |t| %>
+      <%= link_to t.name, tag_path(t.name) %>
+    <% end %>
+
   </div>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
