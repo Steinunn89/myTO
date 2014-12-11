@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   def self.tagged_with(name)
-  	Tag.find_by_name!(name).articles
+  	Tag.find_by_name!(name).events
   end
   
   def tag_list
