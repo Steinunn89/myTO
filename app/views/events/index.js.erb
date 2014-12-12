@@ -5,5 +5,20 @@
   $('#events').append("<%= j(render @events) %>");
 <% end %>
 
+
+<% if params[:search_location] %>
+
+  $('#events').html("<%= j(render @events) %>");
+<% else %>
+  $('#events').append("<%= j(render @events) %>");
+<% end %>
+
+<% if params[:latitude] && params[:longitude] %>
+
+  $('#events').html("<%= j(render @events) %>");
+<% else %>
+  $('#events').append("<%= j(render @events) %>");
+<% end %>
+
 $('.pagination').replaceWith('<%= j paginate(@events) %>');
 

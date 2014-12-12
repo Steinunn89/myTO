@@ -1,9 +1,5 @@
-require "pry"
 require "nokogiri"
 require "open-uri"
-require "date"
-
-first_date = "2014-12-9"
 
 def scrape_page(date)
   url = "http://www.blogto.com/events/?date=#{date}"
@@ -38,17 +34,34 @@ def scrape_page(date)
   end
 end
 
-results = scrape_page(first_date)
 
-results.each do |result|
-  Event.create!(
-    name:         result[:name],
-    description:  result[:description],
-    address:      result[:address],
-    start_date:   result[:start_date],
-    time:         result[:time],
-    image:        result[:image]
-  )
+namespace :data do
+  desc "Load data from blogto and add to database"
+  task weekly_populate: :production do
+
+  	first_day = Date.new
+  	dates = [1,2,3,4,5,6,7].map do |day|
+  		(first_day + day.days).strftime("%Y-%m-%e")
+  	end	
+  	 
+
+  	# dates = ["2014-12-01", "2014-12-02", "2014-12-03"]
+
+
+	dates.each do |date|
+		results = scrape_page(date)
+		results.each do |result|
+		  Event.create!(
+		    name:         result[:name],
+		    description:  result[:description],
+		    address:      result[:address],
+		    start_date:   result[:start_date],
+		    time:         result[:time],
+		    image:        result[:image]
+		  )
+		end
+	end
+
+
+  end
 end
-
-binding.pry

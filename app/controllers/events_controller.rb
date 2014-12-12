@@ -1,7 +1,12 @@
 class EventsController < ApplicationController
 	def index
+
 		@events = if params[:search]
       		Event.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    	elsif params[:search_location]
+    		Event.near(params[:search_location], 1.5, units: :km)
+    	elsif params[:latitude] && params[:longitude]
+    		Event.near([params[:latitude], params[:longitude]], 1.5, units: :km)
     	else
       		Event.order('events.created_at DESC')
     	end.page(params[:page])
@@ -28,6 +33,8 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
+		@nearby_events = @event.nearbys(1.5, units: :km)
+		@nearby_coords = @nearby_events.map {|e| {latitude: e.latitude.to_f, longitude: e.longitude.to_f}}
 	end
 
 	def edit

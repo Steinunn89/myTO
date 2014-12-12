@@ -6,6 +6,24 @@
 
 <br>
 <p> Description: <%= @event.description %></p>
-<p> Start time: <%= @event.time %> </p>
+<p> Start time: <%= @event.time.strftime("%l:%M %p") %> </p>
 <p> Date: <%= @event.start_date %> </p>
 <p> Address: <%= @event.address %> </p>
+
+
+<br>
+
+<%= content_tag "div", "", id: 'map-canvas', data: {latitude: @event.latitude.to_f, longitude: @event.longitude.to_f, coords: @nearby_events } %>
+<br>
+<br>
+
+<% if @nearby_events.any? %>
+	<h2>Nearby events</h2>
+	<ul>
+		<% @nearby_events.each do |ne| %>
+			<li><%= "#{ne.name}, #{ne.distance.to_f} km away" %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+

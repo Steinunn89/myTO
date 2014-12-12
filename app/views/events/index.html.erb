@@ -4,6 +4,19 @@
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
 <% end %>
+<br>
+<br>
+
+<%= form_tag events_path, method: :get do %>
+	<%= label_tag :search_location, "Find events nearby"%>
+	<%= text_field_tag :search_location, params[:searh_location]%>
+	<%= submit_tag 'Submit' %>
+<%end%>
+<br>
+<br>
+<button id="current-location"> Find events near me</button>
+<br>
+<br>
 
 <div id="events">
   <%= render @events %>
