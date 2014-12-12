@@ -4,9 +4,9 @@ class EventsController < ApplicationController
 		@events = if params[:search]
       		Event.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     	elsif params[:search_location]
-    		Event.near(params[:search_location], 1.5, units: :km)
+    		Event.near(params[:search_location], 5, units: :km)
     	elsif params[:latitude] && params[:longitude]
-    		Event.near([params[:latitude], params[:longitude]], 1.5, units: :km)
+    		Event.near([params[:latitude], params[:longitude]], 5, units: :km)
     	else
       		Event.order('events.created_at DESC')
     	end.page(params[:page])

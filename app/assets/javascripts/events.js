@@ -24,7 +24,24 @@ function geolocationError(){
 
 $(document).on('ready page:load', function() {
 
-	$('#current-location').on('click', function() {
+	
+
+  $('#search-form').submit(function(event) {
+    event.preventDefault();
+    var searchValue = $('#search').val();
+
+
+    $.getScript('/events?search=' + searchValue)
+  });
+
+  // $('#search-form2').submit(function(event) {
+  //   event.preventDefault();
+  //   var searchValue2 = $('#search_location').val();
+
+  //   $.getScript('/events?search=' + searchValue2)
+  // });
+ 	
+  $('#current-location').on('click', function() {
  		
  		if ('geolocation' in navigator) {
  			navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
@@ -32,28 +49,7 @@ $(document).on('ready page:load', function() {
  			alert ('Your browser does not support geolocation');
  		}
  	});
-
-  $('#search-form').submit(function(event) {
-    event.preventDefault();
-    var searchValue = $('#search').val();
-
-     // $.get('/products?search=' + searchValue)
-     //  .done(function(data){
-     //    console.log(data);
-     //    $('#products').html(data);
-     //  });
-    $.getScript('/events?search=' + searchValue)
-  });
  	
-
-// $(document).on('ready page:load', function() {
-//   $('#search-form').submit(function(event) {
-//     event.preventDefault();
-//     var searchValue = $('#search').val();
-
-//      $.getScript('/products?search=' + searchValue);
-//   });
-
      if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination span.next').children().attr('href');

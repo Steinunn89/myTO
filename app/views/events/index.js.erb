@@ -1,17 +1,10 @@
-<% if params[:search] %>
+<% if params[:search] || params[:search_location] %>
 
   $('#events').html("<%= j(render @events) %>");
 <% else %>
   $('#events').append("<%= j(render @events) %>");
 <% end %>
 
-
-<% if params[:search_location] %>
-
-  $('#events').html("<%= j(render @events) %>");
-<% else %>
-  $('#events').append("<%= j(render @events) %>");
-<% end %>
 
 <% if params[:latitude] && params[:longitude] %>
 

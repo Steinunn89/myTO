@@ -7,9 +7,9 @@
 <br>
 <br>
 
-<%= form_tag events_path, method: :get do %>
+<%= form_tag events_path, method: :get, id: 'search-form2' do %>
 	<%= label_tag :search_location, "Find events nearby"%>
-	<%= text_field_tag :search_location, params[:searh_location]%>
+	<%= text_field_tag :search_location, params[:search_location]%>
 	<%= submit_tag 'Submit' %>
 <%end%>
 <br>
