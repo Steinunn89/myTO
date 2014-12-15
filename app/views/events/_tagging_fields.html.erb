@@ -1,0 +1,7 @@
+<div class="nested-fields">
+
+	<div>
+		<%= f.hidden_field :event_id, value: @event.id %>
+		<%= f.collection_select :taggings, :tag_id, Tag.all, :id, :name %>
+	</div>
+</div>

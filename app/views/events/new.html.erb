@@ -49,11 +49,12 @@
 		<%= f.label :website %>
 		<%= f.text_field :website %>
 	</div>
-
+	
 	<div>
-		<%= f.label :tag_list, "Tags (separated by commas)" %>
-		<%= f.text_field :tag_list %>
+		<%= f.label :taggings, "Tags: " %>
+		<%= collection_select(:taggings, :tag_id, Tag.all, :id, :name) %>
 	</div>
+
 	<br>
 
 	<%= f.submit %>
