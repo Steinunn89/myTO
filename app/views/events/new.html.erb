@@ -53,7 +53,7 @@
 	<div>
 		Categories:
 		<% Category.all.each do |category| %>
-			<%= check_box_tag 'category_id', category.id %>
+			<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
 			<%= category.name %>
 		<% end %> 
 	</div>
