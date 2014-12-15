@@ -52,3 +52,31 @@ results.each do |result|
 end
 
 binding.pry
+
+Category.create!([{
+  name: 'Concerts'
+}])
+
+Category.create!([{
+  name: 'Festivals'
+}])
+
+Category.create!([{
+  name: 'Comedy'
+}])
+
+Category.create!([{
+  name: 'Family'
+}])
+
+Category.create!([{
+  name: 'Nightlife'
+}])
+
+Category.create!([{
+  name: 'Sports'
+}])
+
+Category.create!([{
+  name: 'Performing Arts'
+}])
