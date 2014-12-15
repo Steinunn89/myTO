@@ -50,6 +50,40 @@ $(document).on('ready page:load', function() {
  		}
  	});
  	
+//    $("#search").keyup(function(){
+//     query = $("#search").val();
+
+//     $.ajax({
+//       url: '/events',
+//       dataType: "jsonp",
+//       success: searchCallBack
+//     });
+//   });
+
+//   $(".search-results").on('click', ".movie-click", function(){
+//     $('#event_rt_id').val($(this).data("movie")).css();
+//   });
+
+// });
+
+// // callback for when we get back the results
+// function searchCallback(data)
+
+// $(".search-results").html('');
+//   var movies = data.movies;
+//   $.each(movies, function(index, movie) {
+//     if (index < 5) {
+//       $(".search-results").append('<div data-movie=' + movie.id + ' class="movie-click">' 
+//         + '<img height="50" id="img-thumb" src="' + movie.posters.thumbnail + '" />' 
+//         + '<div id="movie-title-cont">' + '<h5 class="movie-title">' + movie.title 
+//         + ' (' + movie.year + ')' + '</h5>' + '</div>' + '</div>');
+//       for(var i = 0; i < movie.abridged_cast.length; i++) {
+//         $(".search-results").append('<i>' + movie.abridged_cast[i]["name"] + ' / ' + '</i>');
+//       }
+//     }
+//   });
+
+
      if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination span.next').children().attr('href');
