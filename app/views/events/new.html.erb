@@ -54,7 +54,7 @@
 		Categories:
 		<% Category.all.each do |category| %>
 			<label>
-				<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category), :id=>"checkbox_#{category.id}" %>
+				<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
 				<%= category.name %>
 			</label>
 		<% end %> 
