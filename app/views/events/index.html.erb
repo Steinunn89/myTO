@@ -15,7 +15,11 @@
 <br>
 <br>
 <button id="current-location"> Find events near me</button>
+
 <br>
+
+<%=link_to "Add A New Event", new_event_url %>
+
 <br>
 
 <div id="events">
@@ -23,7 +27,6 @@
 </div>
 
 
-<%=link_to "Add A New Event", new_event_url %>
 
 <div id="events-pagination"><%= paginate @events %></div>
 
