@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def create
+    logger.debug "Creating sessions"
     user = User.where(:email => params[:email]).first
     if user && user.authenticate(params[:password])
       self.current_user = user

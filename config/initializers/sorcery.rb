@@ -109,10 +109,10 @@ Rails.application.config.sorcery.configure do |config|
   # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   # config.twitter.user_info_mapping = {:email => "screen_name"}
   #
-  config.facebook.key = "908454422513063"
-  config.facebook.secret = "a8fc53199afca0f080af4c4a2cfeb24c"
+  config.facebook.key = Rails.application.secrets.facebook_key_base
+  config.facebook.secret = Rails.application.secrets.facebook_secret_base
   config.facebook.callback_url = "http://localhost:3000/oauth/callback?provider=facebook"
-  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
+  config.facebook.user_info_mapping = {:email => "email", :name => "name"} #etc
   config.facebook.scope = "email" #etc
   #config.facebook.display = "popup"
   
