@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141216011532) do
 
   create_table "authentications", force: true do |t|
@@ -20,6 +21,22 @@ ActiveRecord::Schema.define(version: 20141216011532) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+ActiveRecord::Schema.define(version: 20141215210001) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_events", id: false, force: true do |t|
+    t.integer "category_id"
+    t.integer "event_id"
+  end
+
+  add_index "categories_events", ["category_id", "event_id"], name: "index_categories_events_on_category_id_and_event_id"
+  add_index "categories_events", ["event_id"], name: "index_categories_events_on_event_id"
 
   create_table "events", force: true do |t|
     t.text     "name"

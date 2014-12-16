@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+	has_and_belongs_to_many :categories
 	geocoded_by :full_address
 	after_validation :geocode, if: :address_changed?
 

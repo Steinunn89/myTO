@@ -45,12 +45,21 @@
 		<%= f.date_field :end_date %>
 	</div>
 
-	
-
 	<div>
 		<%= f.label :website %>
 		<%= f.text_field :website %>
 	</div>
+
+	<div>
+		Categories:
+		<% Category.all.each do |category| %>
+			<label>
+				<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
+				<%= category.name %>
+			</label>
+		<% end %> 
+	</div>
+
 	<br>
 
 	<%= f.submit %>
