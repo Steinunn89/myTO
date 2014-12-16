@@ -111,9 +111,11 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.facebook.key = "908454422513063"
   config.facebook.secret = "a8fc53199afca0f080af4c4a2cfeb24c"
-  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
-  config.facebook.user_info_mapping = {:email => "name"}
-  config.facebook.access_permissions = ["email", "publish_stream"]
+  config.facebook.callback_url = "http://localhost:3000/oauth/callback?provider=facebook"
+  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
+  config.facebook.scope = "email" #etc
+  #config.facebook.display = "popup"
+  
   #
   # config.github.key = ""
   # config.github.secret = ""
@@ -307,7 +309,7 @@ Rails.application.config.sorcery.configure do |config|
     # mailer class. Needed.
     # Default: `nil`
     #
-    # user.reset_password_mailer =
+    user.reset_password_mailer = UserMailer
 
 
     # reset password email method on your mailer class.
@@ -410,7 +412,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
 
     # User's identifier in authentications class.

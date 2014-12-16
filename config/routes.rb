@@ -2,6 +2,16 @@ Rails.application.routes.draw do
 
  
 
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
+  get 'oauths/oauth'
+
+  get 'oauths/callback'
+
   root 'events#index'
   resources :events
 
@@ -11,7 +21,11 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: 'login'
   post 'logout' => 'sessions#destroy', as: 'logout'
 
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
+  resources :password_resets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
