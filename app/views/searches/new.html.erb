@@ -1,0 +1,35 @@
+<h1>Search by:</h1>
+
+<div class="search-form">
+
+	<%= form_for @search do |f| %>
+	<div class="field">
+		Start Date:
+		<%= f.label :start_date %>
+		<%= f.date_field :start_date %>
+	</div>
+
+	<div class="field">
+		End Date:
+		<%= f.label :end_date %>
+		<%= f.date_field :end_date %>
+	</div>
+	<div class="field">
+		Categories:
+		
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => true %>
+	</div>
+
+	<div>
+			Categories:
+			<% Category.all.each do |category| %>
+				<label>
+					<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
+					<%= category.name %>
+				</label>
+			<% end %> 
+	</div>
+	<div class="submit-button"><%= f.submit %></div>
+	<% end %>
+</div>

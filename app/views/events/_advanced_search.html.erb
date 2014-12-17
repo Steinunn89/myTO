@@ -1,0 +1,24 @@
+<h1>Search by:</h1>
+
+<div class="search-form">
+
+	<%= form_for  do |f| %>
+	<div>
+		<%= f.label :start_date %>
+		<%= f.date_field :start_date %>
+	</div>
+
+	<div>
+		<%= f.label :end_date %>
+		<%= f.date_field :end_date %>
+	</div>
+	<div>
+		Categories:
+		
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => true %>
+	</div>
+	<div class="submit-button"><%= f.submit %></div>
+	<% end %>
+</div>
+

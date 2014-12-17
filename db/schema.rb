@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217001028) do
+ActiveRecord::Schema.define(version: 20141217202018) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20141217001028) do
     t.datetime "updated_at"
     t.decimal  "latitude",    precision: 9, scale: 6
     t.decimal  "longitude",   precision: 9, scale: 6
+  end
+
+  create_table "searches", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
