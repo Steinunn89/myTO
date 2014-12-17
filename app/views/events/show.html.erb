@@ -9,7 +9,13 @@
 <p> Start time: <%= @event.time.strftime("%l:%M %p") %> </p>
 <p> Date: <%= @event.start_date %> </p>
 <p> Address: <%= @event.address %> </p>
-
+<p>
+	Tags: 
+<% @event.categories.each do |c| %>
+  <%= link_to c.name, category_path(c.id) %>
+<% end %>
+</p>
+  
 
 <br>
 

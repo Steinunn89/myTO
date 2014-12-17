@@ -3,6 +3,7 @@
  	<img src = <%=event.image%> >
 
   	<h2><%= event.name %> <h2>
+    <%end%>
   	<h3>
 	  	<%= event.start_time %> 
 	  	<%= event.start_date %> 
@@ -15,4 +16,4 @@
           <%= link_to c.name, category_path(c.id) %>
       <% end %>
   	</p>
-  <%end%>
+  

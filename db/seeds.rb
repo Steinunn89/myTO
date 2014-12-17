@@ -51,7 +51,6 @@ results.each do |result|
   )
 end
 
-binding.pry
 
 Category.create!([{
   name: 'Concerts'
