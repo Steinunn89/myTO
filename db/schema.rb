@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20141216011532) do
+ActiveRecord::Schema.define(version: 20141217001028) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -21,8 +20,6 @@ ActiveRecord::Schema.define(version: 20141216011532) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-ActiveRecord::Schema.define(version: 20141215210001) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -68,6 +65,8 @@ ActiveRecord::Schema.define(version: 20141215210001) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "crypted_password"
+    t.string   "salt"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
