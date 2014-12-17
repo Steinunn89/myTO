@@ -1,2 +1,14 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= "#{@category.name}" %></h1>
+
+<p>
+	<% @category.events.each do |event| %>
+		<img src = <%=event.image%> >
+		<h2><%= event.name %><h2>
+  			<h3>
+			  	<%= event.start_time %> 
+			  	<%= event.start_date %> 
+			  	<%= event.address %>
+			  	<%= truncate(event.description, length: 100) %>
+		  	</h3>
+	<% end %>
+</p>
