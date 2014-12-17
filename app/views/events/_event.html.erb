@@ -10,6 +10,6 @@
 	  	<%= truncate(event.description, length: 100) %>
   	</h3>
   	<p>
-  		Tags: <%= raw event.categories.map(&:name).map { |c| link_to c, tag_path(c) }.join(', ') %>
+  		Tags: <%= raw event.categories.map(&:name).map { |c| link_to c, category_path(c) }.join(', ') %>
   	</p>
   <%end%>
