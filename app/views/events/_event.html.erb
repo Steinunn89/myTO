@@ -4,9 +4,12 @@
 
   	<h2><%= event.name %> <h2>
   	<h3>
-  	<%= event.start_time %> 
-  	<%= event.start_date %> 
-  	<%= event.address %>
-  	<%= truncate(event.description, length: 100) %>
+	  	<%= event.start_time %> 
+	  	<%= event.start_date %> 
+	  	<%= event.address %>
+	  	<%= truncate(event.description, length: 100) %>
   	</h3>
+  	<p>
+  		Tags: <%= raw event.categories.map(&:name).map { |c| link_to c, tag_path(c) }.join(', ') %>
+  	</p>
   <%end%>
