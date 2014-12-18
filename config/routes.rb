@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :events
 
   resources :users, only: [:show, :new, :create]
-  resources :sessions, only: [:create, :destroy, :new]
+  resources :sessions, only: [:create, :new]
 
   get 'login' => 'sessions#new', as: 'login'
   post 'logout' => 'sessions#destroy', as: 'logout'
