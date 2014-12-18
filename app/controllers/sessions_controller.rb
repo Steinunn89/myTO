@@ -1,17 +1,15 @@
 class SessionsController < ApplicationController
 	def create
-    logger.debug "Creating sessions"
-    user = User.where(:email => params[:email]).first
-    if user && user.authenticate(params[:password])
-      self.current_user = user
-      redirect_to root_path, notice: "Welcome #{user.name}!"
+    if @user = login(params[:email], params[:password], params[:remember_me])
+      redirect_back_or_to(root_url notice: 'Login successful')
     else
-      redirect_to new_session_path, alert: "Please try again."
+      flash.now[:alert] = 'Login failed'
+      render 'new'
     end
   end
 
   def destroy
-    self.current_user = nil
+    logout
     redirect_to root_path, notice: "You are now signed out."
   end
 
