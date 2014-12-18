@@ -1,26 +1,9 @@
-<h1>myTO - All Events</h1>
+<h1>All Events</h1>
 
-  <%= form_tag events_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %>
-  <% end %>
-<br>
-<br>
 
-  <%= form_tag events_path, method: :get, id: 'search-form2' do %>
-    <%= label_tag :search_location, "Find events nearby"%>
-    <%= text_field_tag :search_location, params[:search_location]%>
-    <%= submit_tag 'Submit' %>
-  <%end%>
 <br>
 <br>
-  <button id="current-location"> Find events near me</button>
-<br>
-<br>
-<%= link_to "Advanced Search", new_search_path %>
-<br>
-<br>
-  <%=link_to "Add A New Event", new_event_url %>
+  
 <br>
 <br>
 
