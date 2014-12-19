@@ -1,19 +1,21 @@
- <%= link_to event_path(event.id) do %>
-  	
- 	<img src = <%=event.image%> >
+<div class = "grid-event"> 
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+   <li><%= link_to event_path(event.id) do %>
+    	
+   	<img src = <%=event.image%> >
 
-  	<h2><%= event.name %> <h2>
-    <%end%>
-  	<h3>
-	  	<%= event.start_time %> 
-	  	<%= event.start_date %> 
-	  	<%= event.address %>
-	  	<%= truncate(event.description, length: 100) %>
-  	</h3>
-  	<p>
-  		Tags: 
-      <% event.categories.each do |c| %>
-          <%= link_to c.name, category_path(c.id) %>
-      <% end %>
-  	</p>
-  
+    	<h2><%= event.name %> <h2>
+      <%end%>
+    	<h3>
+  	  	<%= event.start_time %> 
+  	  	<%= event.start_date %> 
+    	</h3>
+    	<p>
+    		Tags: 
+        <% event.categories.each do |c| %>
+            <%= link_to c.name, category_path(c.id) %>
+        <% end %>
+    	</p>
+    <li>
+  <ul>
+</div>
