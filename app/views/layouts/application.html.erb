@@ -18,27 +18,13 @@
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
-            <h1><strong><a><%= link_to "myTO", root_path %></a></strong></h1>
+            <h1><strong><a class="title"><%= link_to "myTO", root_path %></a></strong></h1>
           </li>
            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
        
         <section class="top-bar-section">
-          <ul class="left">
-            <li class="has-form">
-              <div class="row collapse">
-                 <div class="large-8 small-9 columns">
-                   <%= form_tag events_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
-                   <%= text_field_tag :search, params[:search], placeholder: "Event Name"%>
-                </div>
-                <div class="large-4 small-3 columns">
-                     <button type="submit">Search</button>
-                   <% end %>
-                </div>
-              </div>
-            </li>
-          </ul>
           <!-- Right Nav Section -->
           <ul class="right">
           <!--   <li class="active"><a href="#">Right Button Active</a></li> -->
@@ -66,6 +52,54 @@
         </section>
       </nav>
 
+
+
+      <nav class="top-bar" data-topbar role="navigation">
+
+        <section class="top-bar-section">
+
+          <ul class="left">
+            <li class="has-form">
+              <div class="row collapse">
+                 <div class="large-8 small-9 columns">
+                   <%= form_tag events_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
+                   <%= text_field_tag :search, params[:search], placeholder: "Event Name"%>
+                </div>
+                <div class="large-4 small-3 columns">
+                     <button type="submit">Search</button>
+                   <% end %>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="row">
+            <li class="has-form">
+            <ul class="left">
+              <div class="large-8 small-9 columns">
+                <%= form_tag events_path, method: :get, id: 'search-form2' do %>
+                <%= text_field_tag :search_location, params[:search_location], placeholder: "Location" %>
+              </div>
+              <div class="large-4 small-3 columns">
+                  <button type="submit">Search</button>
+                <%end%>
+              </div>
+              </li>
+            </ul>
+
+            <ul class="right">
+               <div id="nav">
+                <li><%= link_to "Advanced Search", new_search_path %></li>
+              </div>
+            </ul>
+            <ul class="left">
+               <div class="large-12 small-12 columns">
+                <a class="button expand" id="current-location"> Find events near me</a>
+              </div>
+            </ul>
+
+          </div>  
+        </section>
+      </nav>
       <nav class="top-bar" data-topbar role="navigation">
 
         <section class="top-bar-section">
@@ -85,30 +119,6 @@
           </ul>
         </section>
       </nav>
-
-      <nav class="top-bar" data-topbar role="navigation">
-
-        <section class="top-bar-section">
-          <div class="row">
-            <ul class="left">
-              <div class="large-9 small-9 columns">
-                <%= form_tag events_path, method: :get, id: 'search-form2' do %>
-                <%= text_field_tag :search_location, params[:search_location], placeholder: "Location" %>
-              </div>
-              <div class="large-3 small-3 columns">
-                  <button type="submit">Search</button>
-                <%end%>
-              </div>
-              
-            </ul>
-            <ul class="right">
-               <div class="large-12 small-12 columns">
-                <a class="button expand" id="current-location"> Find events near me</a>
-              </div>
-            </ul>
-          </div>  
-        </section>
-      </nav>
     </div>
 
 
@@ -117,7 +127,7 @@
   
 <br>
 <br>
-<%= link_to "Advanced Search", new_search_path %>
+
      
 
       <script>

@@ -4,3 +4,11 @@
 	height: 500px;
 	width: 700px;
 }
+// Controlling the styles for the title in the top bar
+$topbar-title-weight: $font-weight-normal !default;
+$topbar-title-font-size: rem-calc(24) !default;
+
+
+.top-bar .name h1 a{
+	font-size: 29px;
+}
