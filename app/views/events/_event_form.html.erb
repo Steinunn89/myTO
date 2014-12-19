@@ -49,17 +49,21 @@
 
 	<div>
 		Categories:
-		<% Category.all.each do |category| %>
-			<label>
-				<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
-				<%= category.name %>
-			</label>
-		<% end %> 
+		<ul class="inline-list">
+			<% Category.all.each do |category| %>
+				<li>
+					<label>
+						<%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
+						<%= category.name %>
+					</label>
+				</li>
+			<% end %> 
+		</ul>
 	</div>
 
 	<br>
 
-	<%= f.submit %>
+	<button type="submit">Done!</button>
 </div>	
 <% end %>
 
