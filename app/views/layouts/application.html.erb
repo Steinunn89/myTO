@@ -34,7 +34,9 @@
                  <div class="large-8 small-9 columns">
                   <%= form_tag events_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
                     <%= text_field_tag :search, params[:search], placeholder: "Event Name"%>
-                    <%= submit_tag "Search" %>
+                </div>
+                <div class="large-4 small-3 columns">
+                    <button type="submit">Search</button>
                   <% end %>
                 </div>
               </div>
@@ -54,7 +56,7 @@
                   <% else %>
                     <li><%= link_to "Sign up", new_user_path %></li>
                       <li class="has-dropdown">
-                        <a href="#">Sign in</a>
+                        <a>Sign in</a>
                           <ul class="dropdown">
                             <li><%= link_to "Email", new_session_path %></li>
                             <li><%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %></li>
@@ -68,7 +70,6 @@
       </nav>
 
       <nav class="top-bar" data-topbar role="navigation">
-
 
         <section class="top-bar-section">
           <!-- Right Nav Section -->
