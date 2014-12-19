@@ -10,5 +10,21 @@ $topbar-title-font-size: rem-calc(24) !default;
 
 
 .top-bar .name h1 a{
-	font-size: 29px;
+	font-size: 35px;
+}
+
+.top-bar section ul li > a {
+	font-size: 1rem;
+	
+}
+
+.top-bar- section ul li .adding-event{
+	color: yellow;
+}
+
+@media #{medium-only}{
+	width: 50%
+}
+@media #{large-only}{
+	width: 50%
 }

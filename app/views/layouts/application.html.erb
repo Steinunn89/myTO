@@ -73,16 +73,18 @@
             </li>
           </ul>
           <div class="row">
-            <li class="has-form">
             <ul class="left">
-              <div class="large-8 small-9 columns">
-                <%= form_tag events_path, method: :get, id: 'search-form2' do %>
-                <%= text_field_tag :search_location, params[:search_location], placeholder: "Location" %>
-              </div>
-              <div class="large-4 small-3 columns">
-                  <button type="submit">Search</button>
-                <%end%>
-              </div>
+              <li class="has-form">
+                <div class="row collapse">
+                  <div class="large-8 small-9 columns">
+                    <%= form_tag events_path, method: :get, id: 'search-form2' do %>
+                    <%= text_field_tag :search_location, params[:search_location], placeholder: "Location" %>
+                  </div>
+                  <div class="large-4 small-3 columns">
+                      <button type="submit">Search</button>
+                    <%end%>
+                  </div>
+                </div>
               </li>
             </ul>
 
@@ -114,7 +116,7 @@
           <ul class="right">
              <div id="nav">
              
-                   <li><%=link_to "+ Add A New Event", new_event_url %></li>
+                   <li class="adding-event"><%=link_to "+ Add A New Event", new_event_url %></li>
              </div>
           </ul>
         </section>
@@ -234,8 +236,11 @@
       <% if flash[:notice] %>
         <section id="notice"><%= flash[:notice] %></section>
       <% end %>
-
+    <div class="row">
+        <div class="large-12 columns">
     <%= yield %>
+    </div>
+  </div>
 
     <!-- FOOTER AREA -->
   <div class="full-width footer-area">

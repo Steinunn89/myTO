@@ -1,15 +1,9 @@
-<% if params[:search] || params[:search_location] %>
+<% if params[:search] || params[:search_location] ||  (params[:latitude] && params[:longitude]) %>
   $('#events ul').html("<%= j(render @events) %>");
 <% else %>
   $('#events ul').append("<%= j(render @events) %>");
 <% end %>
 
-
-<% if params[:latitude] && params[:longitude] %>
-  $('#events ul').html("<%= j(render @events) %>");
-<% else %>
-  $('#events ul').append("<%= j(render @events) %>");
-<% end %>
 
 $('.pagination').replaceWith('<%= j paginate(@events) %>');
 

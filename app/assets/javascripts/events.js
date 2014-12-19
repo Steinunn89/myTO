@@ -24,15 +24,6 @@ function geolocationError(){
 
 $(document).on('ready page:load', function() {
 
-	
-
-  $('#search-form').submit(function(event) {
-    event.preventDefault();
-    var searchValue = $('#search').val();
-
-
-    $.getScript('/events?search=' + searchValue)
-  });
 
   // $('#search-form2').submit(function(event) {
   //   event.preventDefault();

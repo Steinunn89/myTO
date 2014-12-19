@@ -3,7 +3,7 @@ require "nokogiri"
 require "open-uri"
 require "date"
 
-first_date = "2014-12-9"
+first_date = "2014-12-19"
 
 def scrape_page(date)
   url = "http://www.blogto.com/events/?date=#{date}"

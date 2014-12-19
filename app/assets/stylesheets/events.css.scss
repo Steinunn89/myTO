@@ -4,6 +4,7 @@
 
 #grid-event{
 	@include block-grid(3);
+	$spacing: $block-grid-default-spacing,
+
 
 }
-
