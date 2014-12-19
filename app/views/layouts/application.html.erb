@@ -33,7 +33,7 @@
               <div class="row collapse">
                  <div class="large-8 small-9 columns">
                   <%= form_tag events_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
-                    <%= text_field_tag :search, params[:search] %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Event Name"%>
                     <%= submit_tag "Search" %>
                   <% end %>
                 </div>
@@ -92,7 +92,7 @@
 
   <%= form_tag events_path, method: :get, id: 'search-form2' do %>
     <%= label_tag :search_location, "Find events nearby"%>
-    <%= text_field_tag :search_location, params[:search_location]%>
+    <%= text_field_tag :search_location, params[:search_location], placeholder: "Location" %>
     <%= submit_tag 'Submit' %>
   <%end%>
 

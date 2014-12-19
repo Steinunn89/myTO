@@ -6,15 +6,12 @@
   
 <br>
 <br>
-<ul class="small-block-grid-3">
-  
-      <div id="events">
-    
-      <li><%= render @events %> </li>
-    
-    </div>
-  
-</ul>
+
+<div id="events">
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+    <%# binding.pry %>
+    <%= render @events %>
+  </ul>
+</div>
 
 <div id="events-pagination"><%= paginate @events %></div>
-

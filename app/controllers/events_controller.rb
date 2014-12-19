@@ -2,7 +2,6 @@ class EventsController < ApplicationController
 	before_action :require_login, except: :index 
 	
 	def index
-
 		@events = if params[:search]
       		Event.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     	elsif params[:search_location]
@@ -11,16 +10,20 @@ class EventsController < ApplicationController
     		Event.near([params[:latitude], params[:longitude]], 5, units: :km)
     	else
       		Event.order('events.created_at DESC')
-    	end.page(params[:page])
+    	end
+    	# binding.pry
+    	@events = @events.page(params[:page])
 
 	    respond_to do |format|
     		format.js
       		format.html
     	end
 	end
+
 	def new
 		@event = Event.new
 	end
+
 	def create
 		@event = Event.new(event_params)
 		# @event.categories << Category.where("id = ?", params[:category_id])
@@ -63,7 +66,8 @@ class EventsController < ApplicationController
 	private
 
 	def event_params
-		params.require(:event).permit(:name, :description, :start_date, :end_date, :start_time, :end_time, :address, :venue, :city, :website, :image, { category_ids:[] })
+		params.require(:event)
+			  .permit(:name, :description, :start_date, :end_date, :start_time, :end_time, :address, :venue, :city, :website, :image, { category_ids:[] })
 		
 	end
 end
